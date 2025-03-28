@@ -69,9 +69,10 @@
     .tag-cmp{
         flex-direction: column;
         margin-top: 3rem;
-        .p{
+        p{
             width: 100%;
             text-align: end;
+            font-weight: 500;
         }
         &:hover{
             scale:1.1;
@@ -107,29 +108,30 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease-in-out;
 
-        img{
+        img {
             width: 60%;
             height: 60%;
-        }
+            object-fit: contain;
+          }
     }
     div:nth-child(1){
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
         &:hover{
             scale: 1.2;
         }
     }
     div:nth-child(2){
         margin: 1rem 1.75rem 1rem 1.75rem;
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
         &:hover{
             scale: 1.2;
         }
     }
     div:nth-child(3){
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
         &:hover{
             scale: 1.2;
         }

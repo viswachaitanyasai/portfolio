@@ -1,18 +1,19 @@
-.app__footer{
+.app__footer {
     flex: 1;
     flex-direction: column;
     width: 100%;
-}
-
-.app__footer-cards{
-    width: 60%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap-reverse;
-    margin: 1rem 2rem 1rem;
-
-    .app__footer-card{
+    padding: 2rem 0;
+  
+    &-cards {
+      width: 60%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap-reverse;
+      margin: 1rem 2rem;
+      gap: 1rem;
+  
+      .app__footer-card {
         min-width: 290px;
         display: flex;
         flex-direction: row;
@@ -23,83 +24,142 @@
         border-radius: 10px;
         cursor: pointer;
         background-color: #fef4f5;
-        transition: all 0.3 ease-in-out;
-
-        img{
-            width: 40px;
-            height: 40px;
-            margin: 0 0.7rem;
+        transition: all 0.3s ease-in-out;
+  
+        img {
+          width: 40px;
+          height: 40px;
+          margin: 0 0.7rem;
         }
-
-        a{
-            font-weight: 500;
-            text-decoration: none;
+  
+        a {
+          font-weight: 500;
+          text-decoration: none;
+          color: var(--secondary-color);
+          
+          // Prevent color change on hover
+          &:hover {
+            color: var(--secondary-color);
+          }
         }
-
-        &:hover{
-            box-shadow: 0 0 25px #fef4f5;
+  
+        &:hover {
+          box-shadow: 0 0 25px rgba(254, 244, 245, 0.5);
+          transform: translateY(-3px);
         }
-
-        @media screen and (max-width:450px) {
-            width: 100%;
+  
+        @media screen and (max-width: 450px) {
+          width: 100%;
+          margin: 0.5rem 0;
         }
-    }
-
-    @media screen and (max-width:768px) {
+      }
+  
+      @media screen and (max-width: 768px) {
         width: 100%;
+        margin: 1rem 0;
+      }
     }
-}
-
-.app__footer-form{
-    width: 60%;
-    flex-direction: column;
-    margin: 0.5rem 2rem;
-
-    div{
+  
+    &-form {
+      width: 60%;
+      flex-direction: column;
+      margin: 1rem 2rem;
+      gap: 1rem;
+  
+      .app__flex {
         width: 100%;
         margin: 0.75rem 0;
         border-radius: 10px;
-        cursor: pointer;
         background-color: var(--white-color);
-
         transition: all 0.3s ease-in-out;
-
-        input, textarea{
-            width: 100%;
-            padding: 0.95rem;
-            border: none;
-            border-radius: 7px;
-
-            font-family: var(--font-base);
-            color: var(--secondary-color);
-            outline: none;
+  
+        &:hover {
+          box-shadow: 0 0 15px rgba(254, 244, 245, 0.3);
         }
-
-        textarea{
-            height: 170px;
+  
+        input,
+        textarea {
+          width: 100%;
+          padding: 1rem;
+          border: 1px solid var(--lightGray-color);
+          border-radius: 8px;
+          font-family: var(--font-base);
+          color: var(--secondary-color);
+          outline: none;
+          transition: border-color 0.3s ease;
+  
+          &:focus {
+            border-color: var(--primary-color);
+          }
         }
-        &:hover{
-            box-shadow: 0 0 25px #fef4f5;
+  
+        textarea {
+          height: 150px;
+          resize: vertical;
         }
-    }
-
-    button{
+      }
+  
+      button {
         padding: 1rem 2rem;
         border-radius: 10px;
         border: none;
-        background-color: var(--secondary-color);
-
-        font-weight: 500;
+        background-color: var(--secondary-color); // #313bac
+        font-weight: 600;
         color: var(--white-color);
         outline: none;
-        margin: 2rem 0 0 0;
-
+        margin: 1rem 0 0;
         font-family: var(--font-base);
         cursor: pointer;
-    }
-
-    @media screen and (max-width:450px) {
+        transition: all 0.3s ease-in-out;
+  
+        &:hover:not(:disabled) {
+          background-color: #5f63cc; // Manually calculated lighter version
+          transform: translateY(-2px);
+        }
+  
+        &:disabled {
+          background-color: var(--lightGray-color);
+          color: var(--gray-color);
+          cursor: not-allowed;
+        }
+      }
+  
+      @media screen and (max-width: 450px) {
         width: 100%;
         margin: 1rem 0;
+      }
     }
-}
+  
+    &-error {
+      color: #ff4444;
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+      text-align: center;
+      font-weight: 500;
+    }
+  
+    &-thanks {
+      text-align: center;
+      margin: 2rem 0;
+      padding: 2rem;
+      background-color: rgba(254, 244, 245, 0.3);
+      border-radius: 15px;
+  
+      h3 {
+        margin: 0;
+        padding: 0;
+        color: var(--secondary-color);
+      }
+    }
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
