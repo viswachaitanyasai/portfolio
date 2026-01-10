@@ -64,8 +64,7 @@ const Navbar = () => {
                       <a 
                         href={`#${item}`} 
                         onClick={() => setToggle(false)}
-                        onKeyPress={(e) => e.key === 'Enter' && setToggle(false)}
-                        role="link"
+                        onKeyDown={(e) => e.key === 'Enter' && setToggle(false)}
                         tabIndex={0}
                       >
                         {item}
