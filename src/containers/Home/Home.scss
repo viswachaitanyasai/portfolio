@@ -43,6 +43,9 @@
     bottom: 1rem;
     left: 1rem;
   }
+  @media screen and (max-width: 550px) {
+    display: none;
+  }
 }
 
 .social-icon {

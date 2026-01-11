@@ -1,45 +1,104 @@
-import React, { useState, useEffect } from "react";
+// About.jsx
 import { motion } from "framer-motion";
-import { urlFor, client } from "../../client";
+import { images } from "../../constants/index";
+import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
 import "./About.scss";
 
 const About = () => {
-  const [abouts, setAbouts] = useState([]);
-
-  useEffect(() => {
-    const query = '*[_type == "abouts"]';
-
-    client.fetch(query).then((data) => {
-      setAbouts(data);
-    });
-  }, []);
-
   return (
-    <div id="about">
-      <h2 className="head-text">
-        Everyday life is like <span>programming</span>, I guess.
-        <br />
-        If you love something, you can put <span>beauty😉</span> into it
-      </h2>
+    <div id="about" className="app__about app__flex">
+      <motion.div
+        className="app__social"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <a
+          href="https://www.linkedin.com/in/viswa-chaitanya"
+          target="_blank"
+          rel="noreferrer"
+          className="social-icon"
+        >
+          <FaLinkedinIn />
+        </a>
 
-      <div className="app__profiles">
-        {abouts.map((about, index) => (
+        <a
+          href="https://github.com/viswachaitanyasai"
+          target="_blank"
+          rel="noreferrer"
+          className="social-icon"
+          aria-label="GitHub"
+        >
+          <FaGithub />
+        </a>
+
+        <a
+          href="https://www.instagram.com/viswa_chaitanya_sai"
+          target="_blank"
+          rel="noreferrer"
+          className="social-icon"
+        >
+          <FaInstagram />
+        </a>
+      </motion.div>
+
+
+      <img
+        src={images.about_hey}
+        alt="hey"
+        className="about__corner-image"
+      />
+
+      {/* TOP SECTION */}
+      <div className="about__container">
+        <div className="about__hero">
+          {/* LEFT TEXT */}
           <motion.div
-            whileInView={{ y: [100, 0], opacity: [0, 1] }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: "tween" }}
-            className="app__profile-item"
-            key={about.title + index}
+            className="about__hero-text"
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
           >
-            <img src={urlFor(about.imgUrl)} alt={about.title} />
-            <h2 className="bold-text" style={{ marginTop: 20 }}>
-              {about.title}
-            </h2>
-            <p className="p-text" style={{ marginTop: 10 }}>
-              {about.description}
+            <h1 className="head-text">
+              Hi, I'm <span>Viswa</span>
+            </h1>
+            <p className="p-l-text">
+              A passionate developer who loves building beautiful and functional
+              web applications.
             </p>
           </motion.div>
-        ))}
+
+          {/* RIGHT IMAGE */}
+          <motion.div
+            className="about__hero-image"
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <img
+              src={images.profile}   // replace with Sanity image if needed
+              alt="Viswa"
+            />
+          </motion.div>
+        </div>
+
+        {/* ABOUT CONTENT */}
+        <motion.div
+          className="about__content"
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="head-text">
+            About <span>Me</span>
+          </h2>
+          <p className="p-l-text">
+            I’m a B.Tech student from India with a strong interest in full-stack
+            development. I enjoy working with modern web technologies and turning
+            ideas into real-world applications. I believe good design and clean
+            code go hand in hand.
+          </p>
+        </motion.div>
       </div>
     </div>
   );
