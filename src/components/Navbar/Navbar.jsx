@@ -59,7 +59,7 @@ const Navbar = () => {
                   tabIndex={0}
                 />
                 <ul>
-                  {["home", "about", "skills", "work", "contact"].map(
+                  {["home", "projects", "experience", "skills", "education", "contact"].map(
                     (item) => (
                       <li key={item}>
                         <a

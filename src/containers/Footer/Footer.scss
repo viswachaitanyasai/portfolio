@@ -1,24 +1,30 @@
 .app__footer {
   width: 100%;
-  padding: 1.5rem 0;
-  text-align: center;
+  padding: 2rem 1rem;
   background-color: var(--primary-color);
   border-top: 1px solid var(--lightGray-color);
+  text-align: center;
 }
 
-.app__footer-links {
-  margin-top: 0.5rem;
+.footer-socials {
   display: flex;
   justify-content: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
+  margin: 1.2rem 0;
 
   a {
-    text-decoration: none;
+    font-size: 1.4rem;
     color: var(--gray-color);
-    font-size: 0.9rem;
+    transition: all 0.3s ease;
 
     &:hover {
       color: var(--secondary-color);
+      transform: translateY(-3px);
     }
   }
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--gray-color);
 }

@@ -1,19 +1,45 @@
 import React from "react";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 import "./Footer.scss";
 
 const Footer = () => {
   return (
     <footer className="app__footer">
-      <p className="p-text">
+
+      {/* Social Links */}
+      <div className="footer-socials">
+        <a
+          href="https://www.linkedin.com/in/viswa-chaitanya"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="LinkedIn"
+        >
+          <FaLinkedin />
+        </a>
+
+        <a
+          href="https://github.com/your-github"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub"
+        >
+          <FaGithub />
+        </a>
+
+        <a
+          href="https://instagram.com/your-instagram"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Instagram"
+        >
+          <FaInstagram />
+        </a>
+      </div>
+
+      {/* Copyright */}
+      <p className="footer-copy">
         © {new Date().getFullYear()} Viswa Chaitanya. All rights reserved.
       </p>
-
-      <div className="app__footer-links">
-        <a href="#home">Home</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </div>
     </footer>
   );
 };
