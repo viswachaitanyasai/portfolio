@@ -1,0 +1,72 @@
+.experience {
+  padding: 4rem 2rem;
+}
+
+.experience__timeline {
+  max-width: 900px;
+  margin: 4rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Card */
+.experience-card {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: border-color 0.25s ease;
+  background: #ffffff;
+
+  &:hover {
+    border-color: var(--secondary-color);
+  }
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+
+  h3 {
+    font-size: 1.2rem;
+    color: #111827;
+  }
+
+  span {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+}
+
+.experience-card h4 {
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 0.75rem;
+}
+
+.experience-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Skills */
+.experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  span {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 999px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    font-weight: 600;
+  }
+}
