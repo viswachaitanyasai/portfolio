@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { images } from "../../constants/index";
-import { AppWrap } from "../../wrapper/index";
 import { client } from "../../client";
 import "./Footer.scss";
 
@@ -127,4 +126,4 @@ const Footer = () => {
   );
 };
 
-export default AppWrap(Footer, "contact");
+export default Footer;
