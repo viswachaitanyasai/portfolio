@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Work.scss";
+import "./Projects.scss";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { urlFor, client } from "../../client";
@@ -41,7 +41,7 @@ const Work = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      id="work"
+      id="projects"
     >
       <h2 className="head-text">
         My <span>Portfolio</span> in Web Development

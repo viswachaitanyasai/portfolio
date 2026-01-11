@@ -54,7 +54,7 @@ const Footer = () => {
   };
 
   return (
-    <div id="contact">
+    <div id="footer">
       <h2 className="head-text">
         <span>Contact Me</span>
       </h2>

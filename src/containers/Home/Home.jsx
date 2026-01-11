@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { images } from "../../constants/index";
 import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
-import "./Header.scss";
+import "./Home.scss";
 
 const scaleVariants = {
   whileInView: {
