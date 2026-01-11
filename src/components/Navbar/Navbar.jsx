@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { HiMenuAlt4, HiX } from "react-icons/hi";
+import { useState, useEffect } from 'react';
+import { HiMenu, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 import images from "../../constants/images";
 import "./Navbar.scss";
@@ -7,7 +7,6 @@ import "./Navbar.scss";
 const Navbar = () => {
   const [Toggle, setToggle] = useState(false);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (Toggle) {
       document.body.classList.add('no-scroll');
@@ -34,11 +33,13 @@ const Navbar = () => {
       </ul>
 
       <div className="app__navbar-menu">
-        <HiMenuAlt4 
+        <HiMenu
           onClick={() => setToggle(true)} 
           aria-label="Open menu"
           role="button"
           tabIndex={0}
+          size={35}
+          cursor="pointer"
         />
 
         <AnimatePresence>
@@ -50,7 +51,7 @@ const Navbar = () => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="menu-wrapper"
             >
-              <div className="menu-overlay" onClick={() => setToggle(false)} />
+              {/* <motion.div className="menu-overlay" onClick={() => setToggle(false)} /> */}
               <motion.div className="menu-content">
                 <HiX 
                   onClick={() => setToggle(false)} 

@@ -30,66 +30,71 @@
     }
 
     &-links {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        list-style: none;
-    
-        li {
-          margin: 0 1.5rem;
-          position: relative;
-          
-          // Dot element
-          div {
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 5px;
-            height: 5px;
-            background: transparent;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-          }
-    
-          a {
-            color: var(--gray-color);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: all 0.3s ease;
-    
-            &::after {
-              content: '';
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 0;
-              height: 2px;
-              background: var(--secondary-color);
-              transition: width 0.3s ease;
-            }
-          }
-    
-          &:hover {
-            div {
-              background-color: var(--secondary-color);
-            }
-            
-            a {
-              color: var(--secondary-color);
-              
-              &::after {
-                width: 100%;
-              }
-            }
-          }
+        display: none;
+
+        @media screen and (min-width: 900px) {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-      }
+
+        list-style: none;
+
+        li {
+            margin: 0 1.5rem;
+            position: relative;
+
+            // Dot element
+            div {
+                position: absolute;
+                top: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 5px;
+                height: 5px;
+                background: transparent;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+            a {
+                color: var(--gray-color);
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: 600;
+                letter-spacing: 1px;
+                position: relative;
+                padding: 0.5rem 0;
+                transition: all 0.3s ease;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: var(--secondary-color);
+                    transition: width 0.3s ease;
+                }
+            }
+
+            &:hover {
+                div {
+                    background-color: var(--secondary-color);
+                }
+
+                a {
+                    color: var(--secondary-color);
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
 
     &-menu {
         .menu-wrapper {
@@ -108,8 +113,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(2px);
+            // background: rgba(0, 0, 0, 0.5);
+            // backdrop-filter: blur(2px);
+            // cursor: pointer;
         }
 
         .menu-content {
@@ -125,9 +131,13 @@
             svg {
                 width: 35px;
                 height: 35px;
-                margin-bottom: 2rem;
                 cursor: pointer;
                 transition: transform 0.3s ease;
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: var(--secondary-color);
+
 
                 &:hover {
                     transform: rotate(90deg);
@@ -138,6 +148,8 @@
                 list-style: none;
                 padding: 0;
                 margin: 0;
+                margin-top: 3rem;
+
 
                 li {
                     margin: 1.5rem 0;
