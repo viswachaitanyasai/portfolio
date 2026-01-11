@@ -1,0 +1,38 @@
+.app__education {
+  width: 100%;
+  flex-direction: column;
+}
+
+.app__education-list {
+  margin-top: 2rem;
+}
+
+.app__education-item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+
+  @media screen and (max-width: 450px) {
+    gap: 1rem;
+  }
+}
+
+.app__education-year {
+  min-width: 80px;
+
+  p {
+    color: var(--secondary-color);
+    font-weight: 800;
+  }
+}
+
+.app__education-content {
+  h4 {
+    font-weight: 500;
+  }
+
+  p {
+    margin-top: 4px;
+    color: var(--gray-color);
+  }
+}
