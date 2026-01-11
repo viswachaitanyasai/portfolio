@@ -38,6 +38,10 @@ import nb from "../assets/nb.png";
 import skype from "../assets/skype.png";
 import spotify from "../assets/spotify.png";
 
+import kiit from "../assets/kiit.png"
+import sri_viswa from "../assets/sri_viswa.png"
+import sasi from "../assets/sasi.png"
+
 const images = {
   email,
   mobile,
@@ -75,6 +79,9 @@ const images = {
   skype,
   spotify,
   pytorch,
+  kiit,
+  sri_viswa,
+  sasi
 };
 
 export default images;
