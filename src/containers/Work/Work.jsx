@@ -15,11 +15,12 @@ const Work = () => {
 
   useEffect(() => {
     const query = `*[_type == "works"]`;
-    
-    client.fetch(query)
+
+    client
+      .fetch(query)
       .then((data) => {
         setWorks(data);
-        setFilteredWork(data.filter(work => work.tags.includes("AI/ML")));
+        setFilteredWork(data.filter((work) => work.tags.includes("AI/ML")));
       })
       .catch(console.error);
   }, []);
@@ -30,7 +31,7 @@ const Work = () => {
 
     setTimeout(() => {
       setAnimateCard({ y: 0, opacity: 1 });
-      setFilteredWork(works.filter(work => work.tags.includes(category)));
+      setFilteredWork(works.filter((work) => work.tags.includes(category)));
     }, 500);
   };
 
@@ -40,6 +41,7 @@ const Work = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
+      id="work"
     >
       <h2 className="head-text">
         My <span>Portfolio</span> in Web Development
@@ -53,11 +55,10 @@ const Work = () => {
             onClick={() => handleWorkFilter(category)}
             className={`app__work-filter-btn 
               ${activeFilter === category ? "active" : ""}
-              ${
-                (activeFilter === "AI/ML" && category === "Web") ||
+              ${(activeFilter === "AI/ML" && category === "Web") ||
                 (activeFilter === "Web" && category === "AI/ML")
-                  ? "inactive-dark"
-                  : ""
+                ? "inactive-dark"
+                : ""
               }`}
           >
             {category}
@@ -80,7 +81,7 @@ const Work = () => {
           >
             <div className="app__work-img">
               <img src={urlFor(work.imgUrl)} alt={work.title} />
-              
+
               <motion.div
                 className="app__work-overlay"
                 animate={{

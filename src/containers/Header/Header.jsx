@@ -1,32 +1,31 @@
-import React from 'react';
-import {motion} from "framer-motion";
-import {images} from "../../constants/index";
+import React from "react";
+import { motion } from "framer-motion";
+import { images } from "../../constants/index";
 import "./Header.scss";
 
 const scaleVariants = {
-  whileInView:{
-    scale:[0,1],
-    opacity:[0,1],
-    transition:{
-      duration:1,
-      ease:"easeInOut"
-    }
-  }
-}
+  whileInView: {
+    scale: [0, 1],
+    opacity: [0, 1],
+    transition: {
+      duration: 1,
+      ease: "easeInOut",
+    },
+  },
+};
 
 const Header = () => {
   return (
-    <div className="app__header app__flex">
+    <div className="app__header app__flex" id="home">
       <motion.div
-        whileInView={{x:[-100,0], opacity:[0,1]}}
-        transition={{duration: 0.5}}
+        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.5 }}
         className="app__header-info"
       >
-
         <div className="app__header-badge">
           <div className="badge-cmp app__flex">
             <span>👋🏻</span>
-            <div style={{marginLeft:20}}>
+            <div style={{ marginLeft: 20 }}>
               <p className="p-text">Hello, I am</p>
               <h1 className="head-text">Viswa</h1>
             </div>
@@ -39,37 +38,34 @@ const Header = () => {
       </motion.div>
 
       <motion.div
-        whileInView={{opacity:[0,1]}}
-        transition={{duration: 0.5,delayChildren:0.5}}
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__header-img"
       >
-
-        <img src={images.profile} alt="profile-pic"/>
+        <img src={images.profile} alt="profile-pic" />
 
         <motion.img
-          whileInView={{scale:[0,1]}}
-          transition={{duration: 1,ease:"easeInOut"}}
+          whileInView={{ scale: [0, 1] }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           className="overlay_circle"
           src={images.circle}
           alt="profile-circle"
-        >
-        </motion.img>
-
+        />
       </motion.div>
 
-      <motion.div 
+      <motion.div
         variants={scaleVariants}
         whileInView={scaleVariants.whileInView}
         className="app__header-circles"
       >
-        {[images.react,images.pytorch,images.python].map((circle,index)=>
+        {[images.react, images.pytorch, images.python].map((circle, index) => (
           <div className="circle-cmp app__flex" key={`circle-${index}`}>
-            <img src={circle} alt="circle"/>
+            <img src={circle} alt="circle" />
           </div>
-        )}
+        ))}
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
 export default Header;

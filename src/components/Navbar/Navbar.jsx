@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 import images from "../../constants/images";
 import "./Navbar.scss";
 
 const Navbar = () => {
-  const [Toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
-    if (Toggle) {
-      document.body.classList.add('no-scroll');
+    if (toggle) {
+      document.body.classList.add("no-scroll");
     } else {
-      document.body.classList.remove('no-scroll');
+      document.body.classList.remove("no-scroll");
     }
-  }, [Toggle]);
+  }, [toggle]);
 
   return (
     <nav className="app__navbar">
@@ -34,7 +34,7 @@ const Navbar = () => {
 
       <div className="app__navbar-menu">
         <HiMenu
-          onClick={() => setToggle(true)} 
+          onClick={() => setToggle(true)}
           aria-label="Open menu"
           role="button"
           tabIndex={0}
@@ -43,35 +43,38 @@ const Navbar = () => {
         />
 
         <AnimatePresence>
-          {Toggle && (
+          {toggle && (
             <motion.div
-              initial={{ x: '100%' }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }}
+              exit={{ x: "100%" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="menu-wrapper"
             >
-              {/* <motion.div className="menu-overlay" onClick={() => setToggle(false)} /> */}
               <motion.div className="menu-content">
-                <HiX 
-                  onClick={() => setToggle(false)} 
+                <HiX
+                  onClick={() => setToggle(false)}
                   aria-label="Close menu"
                   role="button"
                   tabIndex={0}
                 />
                 <ul>
-                  {["home", "about", "skills", "work", "contact"].map((item) => (
-                    <li key={item}>
-                      <a 
-                        href={`#${item}`} 
-                        onClick={() => setToggle(false)}
-                        onKeyDown={(e) => e.key === 'Enter' && setToggle(false)}
-                        tabIndex={0}
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
+                  {["home", "about", "skills", "work", "contact"].map(
+                    (item) => (
+                      <li key={item}>
+                        <a
+                          href={`#${item}`}
+                          onClick={() => setToggle(false)}
+                          onKeyDown={(e) =>
+                            e.key === "Enter" && setToggle(false)
+                          }
+                          tabIndex={0}
+                        >
+                          {item}
+                        </a>
+                      </li>
+                    )
+                  )}
                 </ul>
               </motion.div>
             </motion.div>
