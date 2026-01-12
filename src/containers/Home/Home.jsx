@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
 import { client, urlFor } from "../../client";
@@ -100,9 +100,9 @@ const Header = () => {
           />
         )}
 
-        {/* ✅ KEEP THIS */}
         <motion.img
-          whileInView={{ scale: [0, 1] }}
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
           className="overlay_circle"
           src={images.circle}
