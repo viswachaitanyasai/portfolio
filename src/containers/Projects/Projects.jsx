@@ -54,7 +54,6 @@ const Projects = () => {
               <h3>{project.title}</h3>
               <p>{project.description}</p>
 
-              {/* Tech Stack */}
               {project.stack?.length > 0 && (
                 <div className="project-stack">
                   {project.stack.map((tech, i) => (
@@ -63,7 +62,6 @@ const Projects = () => {
                 </div>
               )}
 
-              {/* Links */}
               <div className="project-links">
                 {links.map((link, i) => (
                   <a

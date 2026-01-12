@@ -6,7 +6,7 @@
   .head-text {
     text-align: center;
     margin-bottom: 4rem;
-    color: #111827; // dark gray
+    color: #111827;
   }
 }
 
@@ -18,21 +18,20 @@
   gap: 2rem;
 }
 
-/* Project Card */
 .project-card {
   background: #ffffff;
   border-radius: 1rem;
   padding: 2rem;
 
-  border: 1px solid rgba(0, 0, 0, 0.15); // subtle black border
-  transition: border-color 0.25s ease;  // only border animates
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  transition: border-color 0.25s ease;  
 
   display: flex;
   flex-direction: column;
   height: 100%;
 
   &:hover {
-    border-color: var(--secondary-color); // highlight on hover
+    border-color: var(--secondary-color);
   }
 
   h3 {
@@ -49,9 +48,6 @@
   }
 }
 
-
-
-/* Tech Stack */
 .project-stack {
   display: flex;
   flex-wrap: wrap;
@@ -72,12 +68,12 @@
 .project-links {
   margin-top: auto;
   display: flex;
-  flex-wrap: wrap;     // ✅ prevents overflow
+  flex-wrap: wrap;
   gap: 0.75rem;
 
   a {
-    flex: 1 1 auto;    // ✅ buttons auto resize
-    min-width: 120px;  // keeps them readable
+    flex: 1 1 auto;
+    min-width: 120px;
 
     text-decoration: none;
     display: inline-flex;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
 import { client, urlFor } from "../../client";
@@ -20,7 +20,6 @@ const About = () => {
 
   return (
     <div id="about" className="app__about app__flex">
-      {/* SOCIALS */}
       <motion.div
         className="app__social"
         initial={{ opacity: 0, y: 20 }}
@@ -55,7 +54,6 @@ const About = () => {
         </a>
       </motion.div>
 
-      {/* CORNER IMAGE (Sanity) */}
       {aboutData?.aboutHeyImage && (
         <img
           src={urlFor(aboutData.aboutHeyImage).width(150).url()}
@@ -64,10 +62,8 @@ const About = () => {
         />
       )}
 
-      {/* TOP SECTION */}
       <div className="about__container">
         <div className="about__hero">
-          {/* LEFT TEXT */}
           <motion.div
             className="about__hero-text"
             initial={{ x: -100, opacity: 0 }}
@@ -83,7 +79,6 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* RIGHT IMAGE (Sanity) */}
           <motion.div
             className="about__hero-image"
             initial={{ x: 100, opacity: 0 }}
@@ -99,7 +94,6 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* ABOUT CONTENT */}
         <motion.div
           className="about__content"
           initial={{ y: 50, opacity: 0 }}

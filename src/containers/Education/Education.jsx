@@ -25,15 +25,12 @@ const Education = () => {
             whileInView={{ opacity: [0, 1], y: [20, 0] }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            {/* Year */}
             <div className="education-year">
               {edu.fromYear} – {edu.toYear}
             </div>
 
-            {/* Dot */}
             <span className="timeline-dot" />
 
-            {/* Content */}
             <div className="education-content">
               <div className="education-header">
                 {edu.icon && (

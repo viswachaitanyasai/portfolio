@@ -32,7 +32,6 @@ const Header = () => {
 
   return (
     <div className="app__header app__flex" id="home">
-      {/* SOCIAL ICONS */}
       <motion.div
         className="app__social"
         initial={{ opacity: 0, y: 20 }}
@@ -67,7 +66,6 @@ const Header = () => {
         </a>
       </motion.div>
 
-      {/* TEXT */}
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
@@ -87,7 +85,6 @@ const Header = () => {
         </div>
       </motion.div>
 
-      {/* MAIN IMAGE */}
       <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
@@ -110,7 +107,6 @@ const Header = () => {
         />
       </motion.div>
 
-      {/* STACK IMAGES FROM SANITY */}
       <motion.div
         variants={scaleVariants}
         whileInView={scaleVariants.whileInView}
