@@ -1,12 +1,26 @@
-// About.jsx
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { images } from "../../constants/index";
 import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
+import { client, urlFor } from "../../client";
 import "./About.scss";
 
 const About = () => {
+  const [aboutData, setAboutData] = useState(null);
+
+  useEffect(() => {
+    const query = `*[_type == "about"][0]{
+      profileImage,
+      aboutHeyImage
+    }`;
+
+    client.fetch(query).then((data) => {
+      setAboutData(data);
+    });
+  }, []);
+
   return (
     <div id="about" className="app__about app__flex">
+      {/* SOCIALS */}
       <motion.div
         className="app__social"
         initial={{ opacity: 0, y: 20 }}
@@ -27,7 +41,6 @@ const About = () => {
           target="_blank"
           rel="noreferrer"
           className="social-icon"
-          aria-label="GitHub"
         >
           <FaGithub />
         </a>
@@ -42,12 +55,14 @@ const About = () => {
         </a>
       </motion.div>
 
-
-      <img
-        src={images.about_hey}
-        alt="hey"
-        className="about__corner-image"
-      />
+      {/* CORNER IMAGE (Sanity) */}
+      {aboutData?.aboutHeyImage && (
+        <img
+          src={urlFor(aboutData.aboutHeyImage).width(300).url()}
+          alt="about-hey"
+          className="about__corner-image"
+        />
+      )}
 
       {/* TOP SECTION */}
       <div className="about__container">
@@ -68,17 +83,19 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* RIGHT IMAGE */}
+          {/* RIGHT IMAGE (Sanity) */}
           <motion.div
             className="about__hero-image"
             initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <img
-              src={images.profile}   // replace with Sanity image if needed
-              alt="Viswa"
-            />
+            {aboutData?.profileImage && (
+              <img
+                src={urlFor(aboutData.profileImage).width(400).url()}
+                alt="Viswa"
+              />
+            )}
           </motion.div>
         </div>
 

@@ -1,4 +1,3 @@
-// Projects.jsx
 import { useEffect, useState } from "react";
 import "./Projects.scss";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
@@ -9,12 +8,17 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    const query = `*[_type == "works"] | order(_createdAt desc)`;
+    const query = `*[_type == "projects"] | order(_createdAt desc){
+      _id,
+      title,
+      description,
+      liveLink1,
+      liveLink2,
+      codeLink1,
+      codeLink2
+    }`;
 
-    client
-      .fetch(query)
-      .then((data) => setProjects(data))
-      .catch(console.error);
+    client.fetch(query).then(setProjects).catch(console.error);
   }, []);
 
   return (
@@ -39,29 +43,30 @@ const Projects = () => {
             transition={{ delay: index * 0.08 }}
           >
             <h3>{project.title}</h3>
-
             <p>{project.description}</p>
 
             <div className="project-links">
-              {project.projectLink && (
-                <a
-                  href={project.projectLink}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <AiFillEye />
-                  Live
+              {project.liveLink1 && (
+                <a href={project.liveLink1} target="_blank" rel="noreferrer">
+                  <AiFillEye /> Live
                 </a>
               )}
 
-              {project.codeLink && (
-                <a
-                  href={project.codeLink}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <AiFillGithub />
-                  Code
+              {project.liveLink2 && (
+                <a href={project.liveLink2} target="_blank" rel="noreferrer">
+                  <AiFillEye /> Live
+                </a>
+              )}
+
+              {project.codeLink1 && (
+                <a href={project.codeLink1} target="_blank" rel="noreferrer">
+                  <AiFillGithub /> Code
+                </a>
+              )}
+
+              {project.codeLink2 && (
+                <a href={project.codeLink2} target="_blank" rel="noreferrer">
+                  <AiFillGithub /> Code
                 </a>
               )}
             </div>

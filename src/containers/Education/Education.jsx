@@ -12,7 +12,7 @@ const Education = () => {
     client.fetch(query).then((data) => setEducation(data));
   }, []);
 
-  // 🔥 Map college names to icons
+  // icon mapping stays EXACTLY the same
   const collegeIcons = {
     "Kalinga Institute of Industrial Technology": images.kiit,
     "Sri Viswa Jr College": images.sri_viswa,
@@ -28,13 +28,15 @@ const Education = () => {
       <div className="app__education-timeline">
         {education.map((edu, index) => (
           <motion.div
-            key={edu.name}
+            key={edu.institution}
             className="app__education-item"
             whileInView={{ opacity: [0, 1], y: [20, 0] }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             {/* Year */}
-            <div className="education-year">{edu.year}</div>
+            <div className="education-year">
+              {edu.fromYear} – {edu.toYear}
+            </div>
 
             {/* Dot */}
             <span className="timeline-dot" />
@@ -42,23 +44,22 @@ const Education = () => {
             {/* Content */}
             <div className="education-content">
               <div className="education-header">
-                {collegeIcons[edu.name] && (
+                {collegeIcons[edu.institution] && (
                   <div className="education-icon">
                     <img
-                      src={collegeIcons[edu.name]}
-                      alt={edu.name}
-                      className={`education-icon-img ${edu.name
+                      src={collegeIcons[edu.institution]}
+                      alt={edu.institution}
+                      className={`education-icon-img ${edu.institution
                         .toLowerCase()
                         .replace(/\s/g, "-")}`}
                     />
                   </div>
-
                 )}
-                <h4 className="bold-text">{edu.name}</h4>
+                <h4 className="bold-text">{edu.institution}</h4>
               </div>
 
-              <p className="p-text">{edu.place}</p>
-              <p className="p-text">Score: {edu.marks}</p>
+              <p className="p-text">{edu.location}</p>
+              <p className="p-text">Score: {edu.score}</p>
             </div>
           </motion.div>
         ))}

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { images } from "../../constants/index";
 import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
+import { client, urlFor } from "../../client";
+import { images } from "../../constants";
 import "./Home.scss";
 
 const scaleVariants = {
@@ -16,8 +17,22 @@ const scaleVariants = {
 };
 
 const Header = () => {
+  const [homeData, setHomeData] = useState(null);
+
+  useEffect(() => {
+    const query = `*[_type == "home"][0]{
+      homeHey,
+      stackImages
+    }`;
+
+    client.fetch(query).then((data) => {
+      setHomeData(data);
+    });
+  }, []);
+
   return (
     <div className="app__header app__flex" id="home">
+      {/* SOCIAL ICONS */}
       <motion.div
         className="app__social"
         initial={{ opacity: 0, y: 20 }}
@@ -38,7 +53,6 @@ const Header = () => {
           target="_blank"
           rel="noreferrer"
           className="social-icon"
-          aria-label="GitHub"
         >
           <FaGithub />
         </a>
@@ -53,6 +67,7 @@ const Header = () => {
         </a>
       </motion.div>
 
+      {/* TEXT */}
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
@@ -72,13 +87,20 @@ const Header = () => {
         </div>
       </motion.div>
 
+      {/* MAIN IMAGE */}
       <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__header-img"
       >
-        <img src={images.home_hey} alt="profile-pic" />
+        {homeData?.homeHey && (
+          <img
+            src={urlFor(homeData.homeHey).width(500).url()}
+            alt="home-hey"
+          />
+        )}
 
+        {/* ✅ KEEP THIS */}
         <motion.img
           whileInView={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: "easeInOut" }}
@@ -88,14 +110,18 @@ const Header = () => {
         />
       </motion.div>
 
+      {/* STACK IMAGES FROM SANITY */}
       <motion.div
         variants={scaleVariants}
         whileInView={scaleVariants.whileInView}
         className="app__header-circles"
       >
-        {[images.react, images.pytorch, images.python].map((circle, index) => (
-          <div className="circle-cmp app__flex" key={`circle-${index}`}>
-            <img src={circle} alt="circle" />
+        {homeData?.stackImages?.map((image, index) => (
+          <div className="circle-cmp app__flex" key={index}>
+            <img
+              src={urlFor(image).width(200).height(200).url()}
+              alt={`stack-${index}`}
+            />
           </div>
         ))}
       </motion.div>

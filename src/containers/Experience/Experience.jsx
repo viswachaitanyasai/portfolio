@@ -1,19 +1,24 @@
-// Experience.jsx
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { client } from "../../client";
 import "./Experience.scss";
 
-const experiences = [
-  {
-    role: "Frontend Developer Intern",
-    company: "TechNova Solutions",
-    duration: "Jun 2024 – Aug 2024",
-    description:
-      "Built responsive UI components using React and SCSS. Improved page performance and collaborated closely with backend developers to integrate APIs.",
-    skills: ["React", "SCSS", "JavaScript"],
-  }
-];
-
 const Experience = () => {
+  const [experiences, setExperiences] = useState([]);
+
+  useEffect(() => {
+    const query = `*[_type == "experience"] | order(_createdAt desc){
+      title,
+      company,
+      from,
+      to,
+      description,
+      stack
+    }`;
+
+    client.fetch(query).then(setExperiences).catch(console.error);
+  }, []);
+
   return (
     <section id="experience" className="experience">
       <motion.h2
@@ -35,8 +40,10 @@ const Experience = () => {
             transition={{ delay: index * 0.1 }}
           >
             <div className="experience-header">
-              <h3>{exp.role}</h3>
-              <span>{exp.duration}</span>
+              <h3>{exp.title}</h3>
+              <span>
+                {exp.from} – {exp.to}
+              </span>
             </div>
 
             <h4>{exp.company}</h4>
@@ -44,7 +51,7 @@ const Experience = () => {
             <p>{exp.description}</p>
 
             <div className="experience-skills">
-              {exp.skills.map((skill, i) => (
+              {exp.stack?.map((skill, i) => (
                 <span key={i}>{skill}</span>
               ))}
             </div>
