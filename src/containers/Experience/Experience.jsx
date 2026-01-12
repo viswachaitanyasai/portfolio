@@ -7,7 +7,7 @@ const Experience = () => {
   const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
-    const query = `*[_type == "experience"] | order(_createdAt desc){
+    const query = `*[_type == "experience"] | order(order asc){
       title,
       company,
       from,

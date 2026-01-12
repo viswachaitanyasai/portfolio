@@ -7,7 +7,7 @@ const Skills = () => {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    const skillsQuery = `*[_type=="skills"]`;
+    const skillsQuery = `*[_type == "skills"] | order(order asc)`;
 
     client.fetch(skillsQuery).then((data) => {
       setSkills(data);
@@ -32,7 +32,7 @@ const Skills = () => {
               className="app__flex"
               style={{ backgroundColor: skill.bgColor }}
             >
-              <img src={urlFor(skill.icon)} alt={skill.name} />
+              <img src={urlFor(skill.icon).width(70).url()} alt={skill.name} />
             </div>
             <p className="p-text">{skill.name}</p>
           </motion.div>

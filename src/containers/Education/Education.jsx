@@ -1,23 +1,15 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { client } from "../../client";
-import { images } from "../../constants";
+import { client, urlFor } from "../../client";
 import "./Education.scss";
 
 const Education = () => {
   const [education, setEducation] = useState([]);
 
   useEffect(() => {
-    const query = `*[_type=="education"]`;
+    const query = `*[_type == "education"] | order(order asc)`;
     client.fetch(query).then((data) => setEducation(data));
   }, []);
-
-  // icon mapping stays EXACTLY the same
-  const collegeIcons = {
-    "Kalinga Institute of Industrial Technology": images.kiit,
-    "Sri Viswa Jr College": images.sri_viswa,
-    "Sasi School": images.sasi,
-  };
 
   return (
     <section className="app__education" id="education">
@@ -44,10 +36,10 @@ const Education = () => {
             {/* Content */}
             <div className="education-content">
               <div className="education-header">
-                {collegeIcons[edu.institution] && (
+                {edu.icon && (
                   <div className="education-icon">
                     <img
-                      src={collegeIcons[edu.institution]}
+                      src={urlFor(edu.icon).width(80).url()}
                       alt={edu.institution}
                       className={`education-icon-img ${edu.institution
                         .toLowerCase()
@@ -58,7 +50,15 @@ const Education = () => {
                 <h4 className="bold-text">{edu.institution}</h4>
               </div>
 
+
               <p className="p-text">{edu.location}</p>
+              {(edu.class || edu.course) && (
+                <p className="p-text education-sub">
+                  {edu.class && <span>{edu.class}</span>}
+                  {edu.class && edu.course && <span> • </span>}
+                  {edu.course && <span>{edu.course}</span>}
+                </p>
+              )}
               <p className="p-text">Score: {edu.score}</p>
             </div>
           </motion.div>

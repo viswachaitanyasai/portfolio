@@ -6,15 +6,16 @@
   align-items: center;
 }
 
+/* ===================== TIMELINE ===================== */
+
 .app__education-timeline {
   position: relative;
   width: 100%;
   max-width: 1000px;
   margin-top: 3rem;
 
-  /* Default (mobile-first): NO shift */
+  /* Mobile-first: no horizontal shift */
   --timeline-shift: 0px;
-
   transform: translateX(var(--timeline-shift));
 
   &::before {
@@ -29,14 +30,14 @@
   }
 }
 
-/* ✅ Apply shift ONLY on large screens */
+/* Shift timeline ONLY on large screens */
 @media screen and (min-width: 1024px) {
   .app__education-timeline {
     --timeline-shift: -9rem;
   }
 }
 
-
+/* ===================== ITEM ===================== */
 
 .app__education-item {
   position: relative;
@@ -46,56 +47,62 @@
   margin-bottom: 3rem;
 }
 
-/* YEAR (LEFT) */
-/* YEAR (LEFT) */
+/* ===================== YEAR ===================== */
+
 .education-year {
-  text-align: right;          // 👈 left aligned
-  padding-top: 0.7rem;
+  text-align: right;
+  padding-top: 0.9rem;
   padding-right: 2rem;
   font-weight: 800;
-  font-size: 1.05rem;        // 👈 bigger
+  font-size: 1.05rem;
   color: var(--secondary-color);
 }
 
-/* CONTENT (RIGHT) */
+/* ===================== DOT ===================== */
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  margin-top: 18px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  z-index: 2;
+}
+
+/* ===================== CONTENT ===================== */
+
 .education-content {
   padding-left: 2rem;
-  text-align: left;          // 👈 force left alignment
+  text-align: left;
 
   h4 {
     font-weight: 700;
-    font-size: 1.25rem;      // 👈 bigger school/college name
+    font-size: 1.25rem;
     line-height: 1.4;
   }
 
   p {
     margin-top: 6px;
-    font-size: 1rem;         // 👈 bigger supporting text
+    font-size: 1rem;
     color: var(--gray-color);
   }
 }
 
-/* DOT */
-.timeline-dot {
-  width: 16px;               // 👈 slightly bigger dot
-  height: 16px;
-  margin-top: 6px;
-}
+/* ===================== HEADER (ICON + NAME) ===================== */
 
-/* Header row (icon + name) */
 .education-header {
   display: flex;
   align-items: center;
   gap: 0.8rem;
 }
 
-/* College icon */
-/* College icon (uniform & round) */
+/* ===================== ICON ===================== */
+
 .education-icon {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
   border-radius: 50%;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -106,31 +113,13 @@
 }
 
 .education-icon-img {
-  width: 100%;     // 🔥 CONTROL LOGO SIZE HERE
-  height: 100%;
+  width: 85%;
+  height: 85%;
   object-fit: contain;
 }
 
-/* KIIT */
-.education-icon-img.kalinga-institute-of-industrial-technology {
-  width: 90%;
-  height: 90%;
-}
+/* ===================== MOBILE ===================== */
 
-/* Sri Viswa */
-.education-icon-img.sri-viswa-jr-college {
-  width: 150%;
-  height: 150%;
-}
-
-/* Sasi */
-.education-icon-img.sasi-school {
-  width: 90%;
-  height: 90%;
-}
-
-
-/* MOBILE */
 @media screen and (max-width: 600px) {
   .app__education-timeline::before {
     left: 10px;
@@ -145,8 +134,6 @@
   .education-year {
     grid-column: 1 / -1;
     text-align: left;
-
-    /* 🔥 move it to the right */
     padding-left: 1.5rem;
     padding-bottom: 1rem;
   }

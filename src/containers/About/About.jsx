@@ -58,7 +58,7 @@ const About = () => {
       {/* CORNER IMAGE (Sanity) */}
       {aboutData?.aboutHeyImage && (
         <img
-          src={urlFor(aboutData.aboutHeyImage).width(300).url()}
+          src={urlFor(aboutData.aboutHeyImage).width(150).url()}
           alt="about-hey"
           className="about__corner-image"
         />
@@ -92,7 +92,7 @@ const About = () => {
           >
             {aboutData?.profileImage && (
               <img
-                src={urlFor(aboutData.profileImage).width(400).url()}
+                src={urlFor(aboutData.profileImage).width(260).url()}
                 alt="Viswa"
               />
             )}

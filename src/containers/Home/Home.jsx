@@ -95,7 +95,7 @@ const Header = () => {
       >
         {homeData?.homeHey && (
           <img
-            src={urlFor(homeData.homeHey).width(500).url()}
+            src={urlFor(homeData.homeHey).width(550).url()}
             alt="home-hey"
           />
         )}
@@ -119,7 +119,7 @@ const Header = () => {
         {homeData?.stackImages?.map((image, index) => (
           <div className="circle-cmp app__flex" key={index}>
             <img
-              src={urlFor(image).width(200).height(200).url()}
+              src={urlFor(image).width(80).height(80).url()}
               alt={`stack-${index}`}
             />
           </div>
