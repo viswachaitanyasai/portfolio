@@ -8,7 +8,7 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    const query = `*[_type == "projects"] | order(order asc){
+    const query = `*[_type == "projects" && hide != true] | order(order asc){
       _id,
       title,
       description,

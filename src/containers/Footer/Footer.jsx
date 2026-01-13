@@ -16,7 +16,7 @@ const Footer = () => {
         </a>
 
         <a
-          href="https://github.com/your-github"
+          href="https://github.com/viswachaitanyasai"
           target="_blank"
           rel="noreferrer"
           aria-label="GitHub"
@@ -25,7 +25,7 @@ const Footer = () => {
         </a>
 
         <a
-          href="https://instagram.com/your-instagram"
+          href="https://www.instagram.com/viswa_chaitanya_sai"
           target="_blank"
           rel="noreferrer"
           aria-label="Instagram"
