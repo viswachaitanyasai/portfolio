@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Projects.scss";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
-import { client } from "../../client";
+import { client, urlFor } from "../../client";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -57,10 +57,19 @@ const Projects = () => {
               {project.stack?.length > 0 && (
                 <div className="project-stack">
                   {project.stack.map((tech, i) => (
-                    <span key={i}>{tech}</span>
+                    <span key={i} className="stack-item">
+                      {tech.icon && (
+                        <img
+                          src={urlFor(tech.icon).width(30).height(30).url()}
+                          alt={tech.name || "tech icon"}
+                        />
+                      )}
+                      {tech.name && <span>{tech.name}</span>}
+                    </span>
                   ))}
                 </div>
               )}
+
 
               <div className="project-links">
                 {links.map((link, i) => (
