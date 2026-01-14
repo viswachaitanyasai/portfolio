@@ -68,3 +68,23 @@
     font-weight: 600;
   }
 }
+
+@media (max-width: 640px) {
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .experience-company {
+    order: 2;
+    margin-bottom: 0.25rem;
+  }
+
+  .experience-date {
+    order: 3;
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+  }
+}

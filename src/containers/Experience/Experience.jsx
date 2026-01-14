@@ -41,12 +41,12 @@ const Experience = () => {
           >
             <div className="experience-header">
               <h3>{exp.title}</h3>
-              <span>
+              <span className="experience-date">
                 {exp.from} – {exp.to}
               </span>
             </div>
 
-            <h4>{exp.company}</h4>
+            <h4 className="experience-company">{exp.company}</h4>
 
             <p>{exp.description}</p>
 

@@ -3,7 +3,6 @@
 :root {
   --font-base: "DM Sans", sans-serif;
 
-  /* --primary-color: #071952; */
   --primary-color: #edf2f8;
   --secondary-color: #313bac;
   --black-color: #030303;
@@ -13,9 +12,21 @@
   --white-color: #ffffff;
 }
 
-* {
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-base);
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
 }
+
+/* Optional debug (remove later) */
+/* * { outline: 1px solid red; } */
